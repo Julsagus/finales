@@ -1,0 +1,257 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%; 
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, rgba(255, 107, 107, 0.9), rgba(41, 47, 54, 0.9));
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding-top: 70px;
+    line-height: 1.5;
+}
+
+
+.barra {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #669e6d;
+    height: 60px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 0 15px;
+}
+
+.barra:hover {
+    background-color: #978E87;
+}
+
+
+.list-container {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    width: 95%;
+    max-width: 1200px;
+    margin: 20px auto;
+    flex: 1;
+}
+
+
+.list-title {
+    text-align: center;
+    font-size: 2.2rem;
+    margin: 0 0 30px;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    padding: 0 10px;
+}
+
+
+.contacts-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 30px 0;
+    background-color: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+    font-size: 1.1rem;
+}
+
+.contacts-table th, 
+.contacts-table td {
+    padding: 18px 20px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+    color: #333;
+}
+
+.contacts-table th {
+    background-color: #669e6d;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.contacts-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.contacts-table tr:hover {
+    background-color: rgba(255, 107, 107, 0.1);
+}
+
+
+.back-button {
+    margin: 40px 0 20px;
+    text-align: center;
+}
+
+.back-button a {
+    display: inline-block;
+    padding: 15px 35px;
+    background-image: linear-gradient(to right, #667eea, #764ba2, #6B8DD6, #8E37D7);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 15px rgba(116, 79, 168, 0.6);
+    transition: all 0.3s ease;
+}
+
+.back-button a:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(116, 79, 168, 0.8);
+}
+
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    width: 100%;
+    margin-top: auto;
+    font-size: 1rem;
+}
+
+
+@media (max-width: 992px) {
+    .list-container {
+        padding: 20px;
+    }
+    
+    .list-title {
+        font-size: 2rem;
+    }
+    
+    .contacts-table th, 
+    .contacts-table td {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 18px; 
+    }
+    
+    body {
+        padding-top: 60px;
+    }
+    
+    .list-container {
+        padding: 20px 15px;
+        width: 98%;
+    }
+    
+    .list-title {
+        font-size: 1.8rem;
+        margin-bottom: 25px;
+    }
+    
+    .contacts-table {
+        font-size: 1rem;
+    }
+    
+    .contacts-table th {
+        font-size: 1.1rem;
+    }
+    
+    .back-button a {
+        padding: 14px 30px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .list-title {
+        font-size: 1.6rem;
+    }
+    
+    .contacts-table {
+        display: block;
+        width: 100%;
+    }
+    
+    .contacts-table thead {
+        display: none;
+    }
+    
+    .contacts-table tr {
+        display: block;
+        margin-bottom: 20px;
+        border-radius: 10px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .contacts-table td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px;
+        text-align: right;
+    }
+    
+    .contacts-table td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        color: #669e6d;
+        margin-right: 15px;
+        text-align: left;
+        flex: 1;
+    }
+    
+    .contacts-table td span {
+        flex: 2;
+        text-align: right;
+    }
+    
+    .back-button a {
+        width: 100%;
+        max-width: 280px;
+        padding: 14px;
+    }
+}
+
+@media (max-width: 400px) {
+    html {
+        font-size: 16px;
+    }
+    
+    .list-title {
+        font-size: 1.5rem;
+    }
+    
+    .contacts-table td {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 12px 15px;
+    }
+    
+    .contacts-table td::before {
+        margin-bottom: 5px;
+        font-size: 0.95rem;
+    }
+    
+    .back-button a {
+        font-size: 0.95rem;
+    }
+}

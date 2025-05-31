@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Contactos</title>
+    <link rel="stylesheet" href="/stylesheets/contacts_list.css">
+</head>
+<body>
+    <div class="barra">
+        <a href="/index" class="opcion">Inicio</a>
+        <a href="/informacion" class="opcion">informacion</a>
+        <a href="/menu" class="opcion">talleres</a>
+        <a href="/payment" class="opcion">pago</a>
+        <a href="/contact" class="opcion">comentarios</a>
+        
+        
+    </div>
+
+
+    <h1>Contactos Recibidos</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Email</th>
+                <th>Comentario</th>
+                <th>IP</th>
+                <th>Fecha</th>
+                <th>pais</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% contacts.forEach(contact => { %>
+                <tr>
+                    <td data-label="Nombre"><%= contact.name %></td>
+                    <td data-label="Email"><%= contact.email %></td>
+                    <td data-label="Comentario"><%= contact.comment %></td>
+                    <td data-label="IP"><%= contact.ip_address %></td>
+                    <td data-label="Fecha"><%= new Date(contact.created_at).toLocaleString() %></td>
+                    <td data-label="country"><%= contact.country %></td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+    <%- include('footer') %>
+</body>
+</html>

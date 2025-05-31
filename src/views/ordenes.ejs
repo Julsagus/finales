@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>MENU</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="/stylesheets/ordenes.css" rel="stylesheet" />
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+
+
+
+
+
+<body>
+
+    
+        
+    <div class="barra">
+        <a href="/index" class="opcion">Inicio</a>
+        <a href="/informacion" class="opcion">informacion</a>
+        <a href="/menu" class="opcion">talleres</a>
+        <a href="/payment" class="opcion">pago</a>
+        <a href="/admin/contactlist" class="opcion">registrados</a>
+        
+    </div>
+
+    <main class="contenedor">
+        <h1>Comentarios</h1>
+        
+        <div class="llenado">
+            <form action="/contact/add" method="POST" class="form-contacto" id="miFormulario">
+                <div class="form-group">
+                    <label for="email" class="label-comida">Correo electrónico</label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        required 
+                        class="form-input"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="name" class="label-comida">Nombres</label>
+                    <input 
+                        type="text" 
+                        id="name" 
+                        name="name" 
+                        required 
+                        class="form-input"
+                    >
+                </div>
+           
+                <div class="form-group">
+                    <label for="comment" class="label-comida">Comentario</label>
+                    <textarea 
+                        id="comment" 
+                        name="comment" 
+                        rows="5" 
+                        required 
+                        class="form-input textarea"
+                    ></textarea>
+                </div>
+        
+<div class="form-group">
+ <div class="g-recaptcha" data-sitekey="6LeT4TgrAAAAAAUmxDNvCA13RO_RwYgUL2Ajnj5z"></div>
+            </div>
+
+
+                <div class="botones">
+                    <button type="submit" class="botoncito color-3">Enviar Mensaje</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+<img class="logo" src="logo.png".png" alt="primero" />
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("miFormulario");
+        const submitButton = document.querySelector(".botoncito");
+        const requiredFields = form.querySelectorAll("input[required], textarea[required]");
+        const recaptchaContainer = document.querySelector(".g-recaptcha");
+        
+        // Deshabilitar el botón al inicio
+        submitButton.disabled = true;
+        submitButton.style.cursor = "not-allowed";
+        submitButton.style.opacity = "0.5";
+    
+        function validarFormulario() {
+            let todosCompletos = true;
+    
+            requiredFields.forEach((campo) => {
+                if (!campo.value.trim()) {
+                    todosCompletos = false;
+                }
+            });
+    
+            const recaptchaToken = document.querySelector(".g-recaptcha-response").value.trim();
+            const recaptchaValido = recaptchaToken !== "";
+    
+            if (todosCompletos && recaptchaValido) {
+                submitButton.disabled = false;
+                submitButton.style.cursor = "pointer";
+                submitButton.style.opacity = "1";
+            } else {
+                submitButton.disabled = true;
+                submitButton.style.cursor = "not-allowed";
+                submitButton.style.opacity = "0.5";
+            }
+        }
+    
+        // Monitorear cambios en los campos del formulario
+        requiredFields.forEach((campo) => {
+            campo.addEventListener("input", validarFormulario);
+        });
+    
+        // Monitorear cambios en el reCAPTCHA correctamente
+        setInterval(validarFormulario, 1000); // Verificar el reCAPTCHA cada segundo
+    });
+    </script>
+
+<%- include('footer') %>
+</body>
+</html>
