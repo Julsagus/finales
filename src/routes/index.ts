@@ -25,15 +25,15 @@ router.get('/contact', (req: Request, res: Response) => {
   });
 });
 
-router.get('/payment', (req, res) => {
+router.get('/payment', (req: Request, res: Response) => {
   res.render('payment');
 });
 
-router.get('/error', (req, res) => {
+router.get('/error', (req: Request, res: Response) => {
   res.render('error');
 });
 
-router.get('/exito', (req, res) => {
+router.get('/exito', (req: Request, res: Response) => {
   res.render('exito');
 });
 
@@ -53,7 +53,7 @@ router.post('/contact/add', controllerContacts.add.bind(controllerContacts));
 
 router.get('/admin/contactlist', controllerContacts.list.bind(controllerContacts));
 
-router.get('/index', (req, res) => {
+router.get('/index', (req: Request, res: Response) => {
   res.render('index', { title: 'inicio' });
 });
 
