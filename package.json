@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "build": "tsc && npm run copy-views",
+    "build": "npm run clean && tsc && npm run copy-views",
+    "clean": "rimraf dist",
     "copy-views": "cp -r src/views dist/views && cp -r src/public dist/public",
     "start": "node dist/app.js",
     "dev": "nodemon --watch src --ext ts,js,ejs --exec ts-node src/app.ts"
@@ -34,6 +35,7 @@
     "@types/nodemailer": "^6.4.17",
     "@types/sqlite3": "^5.1.0",
     "nodemon": "^3.1.10",
+    "rimraf": "^6.0.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
   }
